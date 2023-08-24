@@ -50,7 +50,8 @@ int main() {
 		
 		// Options
 		options_section(&current_page, option);
-	} while(isalpha(option[0]) ? toupper(option[0]) != 'E' : true);
+
+	} while(isalpha(option[0]) ? tolower(option[0]) != 'e' : true);
 
 	return 0;
 }

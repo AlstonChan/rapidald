@@ -6,9 +6,12 @@
 
 using namespace std;
 
+#define NO_ERROR "none"
+
 void options_section(int* current_page, char option[])
 {
 	char accepted_option[] = { 'N', 'n', 'P', 'p', 'C', 'c', 'E', 'e' };
+	static string page_nav_err_msg = NO_ERROR;
 
 	// Options Selection List
 	cout << "Options:" << "\n";
@@ -43,6 +46,10 @@ void options_section(int* current_page, char option[])
 		cout << "Character " << option[0] << " is not an option. Try again.\n";
 	}
 
+	if (page_nav_err_msg != NO_ERROR) {
+		cout << page_nav_err_msg;
+	}
+
 	// Input
 	cout << "Enter your input : ";
 	cin >> option;
@@ -50,12 +57,22 @@ void options_section(int* current_page, char option[])
 	switch (option[0]) {
 	case 'N':
 	case 'n':
-		++*current_page;
+		// If value is alphabet and wanted to go next page on the last page
+		if (*current_page < 1) {
+			++*current_page;
+			page_nav_err_msg = NO_ERROR;
+		} else 
+			page_nav_err_msg = "There is the last page. Try again.\n";
 		break;
 
 	case 'P':
-	case 'p':
-		--*current_page;
+	case 'p':		
+		// If value is alphabet and wanted to go back one page on the first page
+		if (*current_page >= 1) {
+			--*current_page;
+			page_nav_err_msg = NO_ERROR;
+		} else 
+			page_nav_err_msg = "There is no previous page. Try again.\n";
 		break;
 	}
 }
