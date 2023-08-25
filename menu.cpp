@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
 
-	char option[2] = { 'E' };
+	string option = "E";
 	int current_page = 0;
 
 	vector<vector<string>> menu = {
@@ -49,7 +49,7 @@ int main() {
 		}
 		
 		// Options
-		options_section(&current_page, option);
+		options_section(&current_page, &option);
 
 	} while(isalpha(option[0]) ? tolower(option[0]) != 'e' : true);
 
