@@ -15,7 +15,7 @@ int main() {
 
 	vector<vector<string>> menu = {
 		{"Filet o fish burger", "Fish fillet with a slice of chesses with tartar sauce"},
-		{"Black pepper beef burger", "Grilled beef with black pepper sauce with vegetable"},
+		{"Black pepper beef burger", "Grilled beef with black pepper sauce with vegetables"},
 		{"Chesses beef burger", "Grilled beef patty topped with a simple layer of melted cheese"},
 		{"Indian spicy chicken burger", "Crispy chicken patty with sauce recipe from India"},
 		{"Crispy chicken cheese burger", "Crispy chicken patty with chicken strips ,cheese and mayonnaise"},
