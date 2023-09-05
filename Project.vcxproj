@@ -127,15 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="header.cpp" />
+    <ClCompile Include="index.cpp" />
     <ClCompile Include="menu.cpp" />
-    <ClCompile Include="menu_options_section.cpp" />
-    <ClCompile Include="open.cpp" />
-    <ClCompile Include="payment.cpp" />
-    <ClCompile Include="test.cpp" />
-    <ClCompile Include="test2.cpp" />
+    <ClCompile Include="menu_cart.cpp" />
+    <ClCompile Include="menu_food_selection.cpp" />
+    <ClCompile Include="menu_main_nav.cpp" />
+    <ClCompile Include="intro.cpp" />
+    <ClCompile Include="top_up.cpp" />
+    <ClCompile Include="register_membership.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="menu_options_sections.h" />
+    <ClInclude Include="menu_list.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

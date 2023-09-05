@@ -13,38 +13,41 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Functions">
-      <UniqueIdentifier>{50fbcace-8516-4d93-9c39-dce3b9b9753b}</UniqueIdentifier>
+    <Filter Include="Source Files\menu">
+      <UniqueIdentifier>{84f9ad31-af20-4deb-9e31-fa48827d2184}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="top_up.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="intro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="register_membership.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="header.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="index.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="menu.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\menu</Filter>
     </ClCompile>
-    <ClCompile Include="payment.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="menu_food_selection.cpp">
+      <Filter>Source Files\menu</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="menu_main_nav.cpp">
+      <Filter>Source Files\menu</Filter>
     </ClCompile>
-    <ClCompile Include="open.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu_options_section.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="is_number.cpp">
-      <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="utility_func.h">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="menu_cart.cpp">
+      <Filter>Source Files\menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="menu_options_sections.h">
+    <ClInclude Include="menu_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
