@@ -8,7 +8,7 @@ using namespace std;
 void header(void);
 void options_section(int& current_page, string& option);
 
-string menu[18][3] = {
+string menu_list_item[18][3] = {
 	{"Filet o fish burger", "Fish fillet with a slice of chesses with tartar sauce","20"},
 	{"Black pepper beef burger", "Grilled beef with black pepper sauce with vegetables","22"},
 	{"Chesses beef burger", "Grilled beef patty topped with a simple layer of melted cheese","24"},
@@ -19,11 +19,11 @@ string menu[18][3] = {
 	{"Grilled beef wrap", "Grilled beef with black pepper sauce with fresh vegetables", "18"},
 	{"Fish fillet wrap", "Deep fried Dory with spice and vegetables with lemon butter sauce", "16"},
 	{"Cola", "Classic carbonated soft drink with a sweet and tangy flavor", "4"},
-	{"Lemonade", "Refreshing citrusy beverage made from lemon juice and water", "6"},
-	{"Iced Tea", "Chilled tea brewed and served cold, optionally sweetened", "8"},
+	{"Lemonade", "Refreshing citrusy beverage made from lemon juice and water", "4"},
+	{"Iced Tea", "Chilled tea brewed and served cold, optionally sweetened", "4"},
 	{"Fruit Punch", "Fruity blend of juices, often with tropical flavors", "6"},
 	{"Milkshake", "Creamy drink with milk, ice cream, and various flavors", "6"},
-	{"Cheezy Wedges", "Made from fresh potato, served with Mayonnaise and Cheese Sauce", "8"},
+	{"Cheezy Wedges", "Made from fresh potato, served with Mayonnaise and Cheese Sauce", "4"},
 	{"Dirty French Fries", "The french fries on top with Mayonnaise, ketchup and mustard sauce", "4"},
 	{"Fried Calamari", "Golden-brown and crispy fried calamari served with ketchup", "6"},
 	{"Fried Golden Enoki Mushroom", "Crispy fried enoki mushroom and on top with homemade salted-egg sauce", "8"},
@@ -44,8 +44,8 @@ void menu_entry() {
 		// main menu
 		for (size_t i = 0; i < 9; i++) {
 			unsigned int page_start_count = current_page * 9 + i;
-			cout << page_start_count + 1 << ". " << menu[page_start_count][0] << "\n";
-			cout << (page_start_count + 1 > 9 ? "    " : "   ") << menu[page_start_count][1] << "\n" << "\n";
+			cout << page_start_count + 1 << ". " << menu_list_item[page_start_count][0] << "\n";
+			cout << (page_start_count + 1 > 9 ? "    " : "   ") << menu_list_item[page_start_count][1] << "\n" << "\n";
 		}
 		
 		// Options
