@@ -16,6 +16,12 @@
     <Filter Include="Source Files\menu">
       <UniqueIdentifier>{84f9ad31-af20-4deb-9e31-fa48827d2184}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cart">
+      <UniqueIdentifier>{d1ad9d1e-1d49-49d9-acbe-fdb9e833e5e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{7eb191d7-36c9-4f9e-9615-4cf81cb311d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="top_up.cpp">
@@ -33,21 +39,39 @@
     <ClCompile Include="index.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="menu.cpp">
+    <ClCompile Include="menu_entry.cpp">
       <Filter>Source Files\menu</Filter>
     </ClCompile>
     <ClCompile Include="menu_food_selection.cpp">
       <Filter>Source Files\menu</Filter>
     </ClCompile>
-    <ClCompile Include="menu_main_nav.cpp">
+    <ClCompile Include="menu_options.cpp">
       <Filter>Source Files\menu</Filter>
     </ClCompile>
-    <ClCompile Include="menu_cart.cpp">
-      <Filter>Source Files\menu</Filter>
+    <ClCompile Include="termination.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_actions.cpp">
+      <Filter>Source Files\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_options.cpp">
+      <Filter>Source Files\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_item_selection.cpp">
+      <Filter>Source Files\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_entry.cpp">
+      <Filter>Source Files\cart</Filter>
+    </ClCompile>
+    <ClCompile Include="option_validation.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_var.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="menu_list.h">
+    <ClInclude Include="menu_var.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

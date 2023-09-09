@@ -1,12 +1,14 @@
 #include<iostream>
 #include<string>
 
-#include "menu_list.h"
+#include "menu_var.h"
 
 using namespace std;
 
 void header(void);
-void options_section(int& current_page, string& option);
+void menu_options(int& current_page, string& option);
+void termination(void);
+void menu_main_list(int current_page);
 
 string menu_list_item[18][3] = {
 	{"Filet o fish burger", "Fish fillet with a slice of chesses with tartar sauce","20"},
@@ -42,15 +44,23 @@ void menu_entry() {
 		header();
 
 		// main menu
-		for (size_t i = 0; i < 9; i++) {
-			unsigned int page_start_count = current_page * 9 + i;
-			cout << page_start_count + 1 << ". " << menu_list_item[page_start_count][0] << "\n";
-			cout << (page_start_count + 1 > 9 ? "    " : "   ") << menu_list_item[page_start_count][1] << "\n" << "\n";
-		}
+		menu_main_list(current_page);
 		
 		// Options
-		options_section(current_page, option);
+		menu_options(current_page, option);
 
 	// continue to loop if option is not E or e
 	} while(isalpha(option[0]) ? tolower(option[0]) != 'e' : true);
+
+	if (isalpha(option[0]) && tolower(option[0]) != 'e') {
+		termination();
+	}
+}
+
+void menu_main_list(int current_page) {
+	for (size_t i = 0; i < 9; i++) {
+		unsigned int item_id = current_page * 9 + i;
+		cout << item_id + 1 << ". " << menu_list_item[item_id][0] << "\n";
+		cout << (item_id + 1 > 9 ? "    " : "   ") << menu_list_item[item_id][1] << "\n" << "\n";
+	}
 }
