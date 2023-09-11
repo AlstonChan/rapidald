@@ -12,7 +12,6 @@ void termination(void);
 void cart_options(int &current_page, string &option);
 void cart_main_list(int current_page);
 
-Cart cart[100] = {};
 int cart_size = 0;
 
 void cart_entry() {

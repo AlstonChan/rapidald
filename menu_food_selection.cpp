@@ -10,22 +10,21 @@
 using namespace std;
 
 void header(void);
-Cart_Response cart_actions(
+Cart_Response cart_add(
 	int food_num,
 	int quantity,
 	int price,
 	bool is_ala_cart,
 	int sets_drinks_id,
-	int sets_snacks_id,
-	enum actions cart_action
+	int sets_snacks_id
 );
+void handle_invalid(string text, int& input);
 
 void food_selection_quantity(int& order_quantity);
 void handle_invalid(string text, int& input);
 
 void menu_food_selection(int option_num) {
 	unsigned int menu_id = option_num - 1;
-	int wait = 0;
 	int order_quantity = 0; // the quantity of the food/ meal set
 	int user_options = 0; // 0 -> cancel current meal, 1 -> add current meal to cart
 	char meal_option = 0; // Y/y -> set meal, N/n -> ala cart
@@ -82,7 +81,6 @@ void menu_food_selection(int option_num) {
 				handle_invalid("Select a snacks: ", snacks_selection);
 			}
 
-			cout << snacks_selection;
 			cout << "\nSnacks selected: \n" << menu_list_item[snacks_selection + 13][0] << "\n";
 		}
 
@@ -103,11 +101,14 @@ void menu_food_selection(int option_num) {
 	}
 	cout << "Quantity : " << order_quantity << " item\n";
 	if (option_num >= 1 && option_num <= 9) {
-		cout << "Price: RM " << (order_quantity * (stol(menu_list_item[menu_id][2]) + 6));
+		if (tolower(meal_option) == 'y')
+			cout << "Price: RM " << (order_quantity * (stol(menu_list_item[menu_id][2]) + 6));
+		else
+			cout << "Price: RM " << order_quantity* stol(menu_list_item[menu_id][2]);
 	} else
-		cout << "Price: RM " << (order_quantity * stol(menu_list_item[menu_id][2]));
+		cout << "Price: RM " << order_quantity * stol(menu_list_item[menu_id][2]);
 	cout << "\n\n----------Options----------\n";
-	cout << "Enter 0 to back\n";
+	cout << "Enter 0 to cancel\n";
 	cout << "Enter 1 to add to cart\n";
 	cout << "\nEnter your input : ";
 
@@ -121,27 +122,25 @@ void menu_food_selection(int option_num) {
 	if (user_options == 1) {
 		// if current meal is set meal
 		if (tolower(meal_option) == 'y') {
-			Cart_Response res = cart_actions(
+			Cart_Response res = cart_add(
 				option_num - 1, 
 				order_quantity, 
 				order_quantity * (stol(menu_list_item[menu_id][2]) + 6), 
 				false,
-				drinks_selection,
-				snacks_selection,
-				ADD
+				drinks_selection + 9,
+				snacks_selection + 13
 			);
 			cout << res.message;
 			this_thread::sleep_for(chrono::seconds(2));
 		} // else current meal is ala cart
 		else {
-			Cart_Response res = cart_actions(
+			Cart_Response res = cart_add(
 				option_num - 1,
 				order_quantity,
 				order_quantity * stol(menu_list_item[menu_id][2]),
 				true,
 				-1,
-				-1,
-				ADD
+				-1
 			);
 			cout << res.message;
 			this_thread::sleep_for(chrono::seconds(2));
@@ -156,12 +155,4 @@ void food_selection_quantity(int &order_quantity) {
 	while (cin.fail() || order_quantity <= 0) {
 		handle_invalid("Quantity : ", order_quantity);
 	}
-}
-
-void handle_invalid(string text, int &input) {
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "Invalid input, Please try again.";
-		cout << "\n" << text;
-		cin >> input;
 }

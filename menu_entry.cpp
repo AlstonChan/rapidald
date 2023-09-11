@@ -61,6 +61,7 @@ void menu_main_list(int current_page) {
 	for (size_t i = 0; i < 9; i++) {
 		unsigned int item_id = current_page * 9 + i;
 		cout << item_id + 1 << ". " << menu_list_item[item_id][0] << "\n";
-		cout << (item_id + 1 > 9 ? "    " : "   ") << menu_list_item[item_id][1] << "\n" << "\n";
+		cout << (item_id + 1 > 9 ? "    " : "   ") << menu_list_item[item_id][1] << "\n";
+		cout << (item_id + 1 > 9 ? "    " : "   ") << "RM " << menu_list_item[item_id][2] << "\n\n";
 	}
 }

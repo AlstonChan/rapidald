@@ -34,7 +34,7 @@ void cart_options(int &current_page, string &option) {
 			stoi(option) >= current_page * 9 + 1 && 
 			stoi(option) <= current_page * 9 + 9
 		) && 
-		cart[stoi(option) - 1].food_id != 0
+		cart[stoi(option) - 1].food_id != -1
 		) {
 		int option_num = stoi(option);
 		cart_item_selection(option_num);
