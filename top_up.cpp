@@ -48,7 +48,9 @@ void top_up() {
                     case 30:
                     case 50:
                         customerBalance += amount - 0.5;
+                        cout << "-----------------------------------------" << endl;
                         cout << "Top up successful. Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
+                        cout << "-----------------------------------------" << endl;
                         break;
                     default:
                         cout << "Invalid top up amount." << endl;
@@ -58,13 +60,15 @@ void top_up() {
              break;
             
         case 2:
-            cout << "-------------------";
+            cout << "----------------------"<<endl;
             cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
-            cout << "-------------------";
+            cout << "----------------------"<<endl;
             break;
 
         case 3:
+            cout << "------------------------------------------" << endl;
             cout << "Thank you for your top up. Enjoy your meal.\n";
+            cout << "------------------------------------------" << endl;
             break;
 
         default:
