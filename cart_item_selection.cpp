@@ -58,7 +58,7 @@ void cart_item_selection(int cart_num) {
 			cout << "\nQuantity : ";
 			cin >> quantity;
 
-			while (cin.fail()) {
+			while (cin.fail() || quantity <= 0) {
 				handle_invalid("Quantity : ", quantity);
 			}
 

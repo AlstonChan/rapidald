@@ -60,17 +60,24 @@ Cart_Response cart_delete(int cart_id_to_delete) {
 }
 
 bool cart_delete_item(int cart_id) {
-	// Add item to the cart
-	cart[cart_id].food_id = -1;
-	cart[cart_id].quantity = -1;
-	cart[cart_id].price = -1;
-	cart[cart_id].is_ala_cart = false;
-	cart[cart_id].sets_drinks_id = -1;
-	cart[cart_id].sets_snacks_id = -1;
-	cart_size--;
+	if ((cart_id + 1) != cart_size) 
+		for (size_t i = cart_id + 1; i < cart_size; i++) {
+			cart[cart_id].food_id = cart[i].food_id;
+			cart[cart_id].quantity = cart[i].quantity;
+			cart[cart_id].price = cart[i].price;
+			cart[cart_id].is_ala_cart = cart[i].is_ala_cart;
+			cart[cart_id].sets_drinks_id = cart[i].sets_drinks_id;
+			cart[cart_id].sets_snacks_id = cart[i].sets_snacks_id;
+		}
+		
+	cart[cart_size].food_id = -1;
+	cart[cart_size].quantity = -1;
+	cart[cart_size].price = -1;
+	cart[cart_size].is_ala_cart = false;
+	cart[cart_size].sets_drinks_id = -1;
+	cart[cart_size].sets_snacks_id = -1;
 
-	//TODO
-	//Sort item after delete
+	cart_size--;
 
 	return true;
 }

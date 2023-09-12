@@ -47,8 +47,7 @@ void cart_main_list(int current_page) {
 	if (cart_size <= 9) {
 		if (cart_size == 0) {
 			cout << "\nCart is empty\n\n\n";
-		}
-		else
+		} else {
 			for (size_t i = 0; i < cart_size; i++) {
 				unsigned int numbering = current_page * 9 + i;
 
@@ -62,7 +61,16 @@ void cart_main_list(int current_page) {
 				}
 
 				cout << (numbering + 1 > 9 ? "    " : "   ") << "Quantity: " << cart[i].quantity << "\n";
-				cout << (numbering + 1 > 9 ? "    " : "   ") << "Price: " << cart[i].price << "\n\n";
+				cout << (numbering + 1 > 9 ? "    " : "   ") << "Price: RM " << cart[i].price << "\n\n";
 			}
+
+			int total_price = 0;
+			for (size_t i = 0; i < cart_size; i++) {
+				unsigned int numbering = current_page * 9 + i;
+				total_price += cart[i].price;
+			}
+			cout << "Total Price: RM " << total_price << "\n\n";
+		}
+			
 	}
 }
