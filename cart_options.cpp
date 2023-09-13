@@ -64,7 +64,7 @@ void cart_options(int &current_page, string &option) {
 			if (cart_size <= 9) {
 				page_nav_err_msg = "Character " + (option)[0];
 				page_nav_err_msg += " is not an option. Try again.\n";
-			} else if (current_page < 1) {
+			} else if (cart_size > (current_page + 1) * 9) {
 				++current_page;
 				page_nav_err_msg = NO_ERROR;
 			} else
@@ -97,7 +97,7 @@ void cart_options_list(int current_page) {
 		}
 		else cout << "Enter " << current_page * 9 + 1 << " - " << current_page * 9 + current_cart_numbering << " to select item" << "\n";
 	}
-	if (cart_size > 9)
+	if (cart_size > 9 && cart_size > (current_page + 1) * 9)
 		cout << "Enter N to next page" << "\n";
 	if (current_page >= 1)
 		cout << "Enter P to previous page" << "\n";

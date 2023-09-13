@@ -80,7 +80,9 @@ void menu_options(int &current_page, string &option) {
 void menu_options_list(int current_page) {
 	cout << "----------Options----------" << "\n";
 	cout << "Enter " << current_page * 9 + 1 << " - " << current_page * 9 + 9 << " to select item" << "\n";
-	cout << "Enter N to next page" << "\n";
+	if (current_page == 0) {
+		cout << "Enter N to next page" << "\n";
+	}
 	if (current_page >= 1) {
 		cout << "Enter P to previous page" << "\n";
 	}
