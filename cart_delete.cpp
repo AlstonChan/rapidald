@@ -53,7 +53,7 @@ Cart_Response cart_delete(int cart_id_to_delete) {
 				menu_list_item[item.sets_drinks_id][0] + " & " +
 				menu_list_item[item.sets_snacks_id][0])
 			,
-			true
+			false
 		};
 		return failure;
 	}
