@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cart_add.cpp" />
-    <ClCompile Include="cart_confirmation.cpp" />
     <ClCompile Include="cart_delete.cpp" />
     <ClCompile Include="cart_input_validation.cpp" />
     <ClCompile Include="cart_item_selection.cpp" />

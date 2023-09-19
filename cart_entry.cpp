@@ -9,7 +9,7 @@ using namespace std;
 
 void header(void);
 void termination(void);
-void cart_options(int &current_page, string &option);
+void cart_options(int &current_page, string &option, int &dining_option);
 void cart_main_list(int current_page);
 
 int cart_size = 0;
@@ -18,6 +18,7 @@ void cart_entry() {
 
 	string option = "E";
 	int current_page = 0;
+	int dining_option = 0; // 1 for dine in, 2 for take away
 
 	do {
 		cout << "\033c";
@@ -29,10 +30,10 @@ void cart_entry() {
 		cart_main_list(current_page);
 
 		// Options
-		cart_options(current_page, option);
+		cart_options(current_page, option, dining_option);
 
 		// continue to loop if option is not E or e/ M or m
-	} while (isalpha(option[0]) ? tolower(option[0]) != 'e' && tolower(option[0]) != 'm' : true);
+	} while (isalpha(option[0]) ? tolower(option[0]) != 'e' && tolower(option[0]) != 'm': true);
 
 	if (isalpha(option[0]) && tolower(option[0]) == 'e') {
 		termination();
