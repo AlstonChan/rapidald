@@ -2,6 +2,7 @@
 #include<string>
 #include<iomanip>
 #include<limits>
+#include<ctime>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ void register_membership() {
 	//After answer redircting to which page
 	int pnum;
 	string name;
+	string cardnum;
 	while (true)
 	{
 		if (ans == 'Y' || ans == 'y')
@@ -39,7 +41,6 @@ void register_membership() {
 		}
 	}
 	int points, value;
-	string cardnum;
 	cout << setfill('-') << setw(50) << ' ' << endl;
 	cout << setfill(' ');
 	cout << "Member's Name" << setw(16) << ": " << name << endl;
