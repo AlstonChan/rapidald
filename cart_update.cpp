@@ -52,7 +52,7 @@ Cart_Response cart_update(int quantity,int cart_id_to_update) {
 				menu_list_item[cart[cart_id_to_update].sets_drinks_id][0] + " & " +
 				menu_list_item[cart[cart_id_to_update].sets_snacks_id][0])
 			,
-			true
+			false
 		};
 		return failure;
 	}

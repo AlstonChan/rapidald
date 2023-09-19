@@ -62,15 +62,35 @@ Cart_Response cart_add(
 				menu_list_item[sets_drinks_id][0] + " & " +
 				menu_list_item[sets_snacks_id][0])
 			,
-			true
+			false
 		};
 		return failure;
 	}
 }
 
 bool cart_add_item(Cart item) {
-	// Add item to the cart
-	cart[cart_size] = item;
-	cart_size++;
+	if (item.is_ala_cart) {
+		if (cart_size != 0) {
+			for (size_t i = 0; i < cart_size; i++) {
+				if (cart[i].is_ala_cart && cart[i].food_id == item.food_id) {
+					cart[i] = item;
+					break;
+				} else if ((i + 1) == cart_size) {
+					// Add item to the cart
+					cart[cart_size] = item;
+					cart_size++;
+				}
+			}
+		} else {
+			// Add item to the cart
+			cart[cart_size] = item;
+			cart_size++;
+		}
+
+	} else {
+		// Add item to the cart
+		cart[cart_size] = item;
+		cart_size++;
+	}
 	return true;
 }
