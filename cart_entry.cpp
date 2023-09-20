@@ -50,7 +50,7 @@ void cart_main_list(int current_page) {
 		} else {
 			int max_loop = cart_size <= (current_page + 1) * 9 ? cart_size - (current_page * 9) : 9;
 
-			for (size_t i = 0; i < max_loop; i++) {
+			for (int i = 0; i < max_loop; i++) {
 				unsigned int numbering = current_page * 9 + i;
 
 				if (cart[numbering].is_ala_cart) {

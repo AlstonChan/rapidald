@@ -3,5 +3,5 @@
 using namespace std;
 
 void header() {
-	cout << "rapidald" << "\n" << "\n";
+	cout << "rapidald" << "\n\n";
 }

@@ -136,6 +136,7 @@
     <ClCompile Include="handle_invalid.cpp" />
     <ClCompile Include="header.cpp" />
     <ClCompile Include="index.cpp" />
+    <ClCompile Include="logo.cpp" />
     <ClCompile Include="menu_entry.cpp" />
     <ClCompile Include="cart_entry.cpp" />
     <ClCompile Include="cart_options.cpp" />

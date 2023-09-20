@@ -52,13 +52,13 @@ void menu_entry() {
 	// continue to loop if option is not E or e
 	} while(isalpha(option[0]) ? tolower(option[0]) != 'e' : true);
 
-	if (isalpha(option[0]) && tolower(option[0]) != 'e') {
+	if (isalpha(option[0]) && tolower(option[0]) == 'e') {
 		termination();
 	}
 }
 
 void menu_main_list(int current_page) {
-	for (size_t i = 0; i < 9; i++) {
+	for (int i = 0; i < 9; i++) {
 		unsigned int item_id = current_page * 9 + i;
 		cout << item_id + 1 << ". " << menu_list_item[item_id][0] << "\n";
 		cout << (item_id + 1 > 9 ? "    " : "   ") << menu_list_item[item_id][1] << "\n";
