@@ -9,6 +9,7 @@ using namespace std;
 
 void registerinfo();
 void logininfo();
+void validatephonenum();
 
 int main()
 {
@@ -63,6 +64,7 @@ void registerinfo()
 	getline(cin, name);
 	cout << "Please enter your phone number : ";
 	cin >> pnum;
+	validatephonenum();
 	srand(time(NULL));
 	cardnum = rand() % 100000 + 1;
 	points = 0;
@@ -86,8 +88,7 @@ void registerinfo()
 	cout << "Top-up Value: " << right << setw(6) << ' ' << "RM " << fixed << setprecision(2) << value << endl;
 	cout << "Membership Points: " << right << setw(2) << ' ' << fixed << setprecision(2) << points << endl;
 }
-void logininfo()
-{
+void logininfo() {
 	string name, pnum;
 	int cardnum;
 	//decoration
@@ -98,6 +99,22 @@ void logininfo()
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
 	//login by using phone number
-	cout << "Pleas Enter Phone Number to Login : ";
+	cout << "Pleas Enter Phone Number to Login (Ex: 0105198931)";
 	cin >> pnum;
+}
+void validatephonenum() {
+	string pnum;
+	if (pnum.length() = 10 || pnum.length() = 11)
+	{
+		if (pnum.substr(0, 2) == "01") {
+			bool isDigitsOnly = true;
+			for (size_t i = 2; i < pnum.length(); i++) {
+				if (!isdigit(pnum[i]))
+				{
+					isDigitsOnly = false;
+					break;
+				}
+			}
+		}
+	}
 }
