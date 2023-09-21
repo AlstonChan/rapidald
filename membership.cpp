@@ -24,7 +24,7 @@ void membership()
 
 	if (!readFile)
 	{
-		cout << "fail";
+		cout << "fasil";
 	}
 
 	//find id and membership point
