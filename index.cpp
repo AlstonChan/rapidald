@@ -23,9 +23,9 @@ int main() {
 	}
 
 	//intro();
-	//top_up();
+	top_up();
 	//register_membership();
-	menu_entry();
+	//menu_entry();
 
 	return 0;
 }

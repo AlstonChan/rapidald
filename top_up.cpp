@@ -5,6 +5,7 @@
 using namespace std;
 
 void header();
+void handle_invalid(string text, int& input);
 
 void top_up() {
     double customerBalance = 0.0;
@@ -18,6 +19,10 @@ void top_up() {
         cout << "-------------------" << endl;
         cout << "Enter your choice: ";
         cin >> num;
+
+        while (cin.fail() || num <= 0 || num > 3) {
+            handle_invalid("Enter your choice : ", num);
+        }
 
         switch (num) {
             case 1: 
