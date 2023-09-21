@@ -10,18 +10,19 @@ void menu_food_selection(int option_num);
 void menu_options_list(int current_page);
 
 void cart_entry(void);
-void option_input_validation(char accepted_option[], string option, int current_page);
+void option_input_validation(char accepted_option[], int size, string option, int current_page);
 
 #define NO_ERROR "none"
 
 void menu_options(int &current_page, string &option) {
-	char accepted_option[] = { 'N', 'n', 'P', 'p', 'C', 'c', 'E', 'e' };
+	const int SIZE = 8;
+	char accepted_option[SIZE] = { 'N', 'n', 'P', 'p', 'C', 'c', 'E', 'e' };
 	static string page_nav_err_msg = NO_ERROR;
 
 	menu_options_list(current_page);
 
 	// Input Validation
-	option_input_validation(accepted_option, option, current_page);
+	option_input_validation(accepted_option, SIZE, option, current_page);
 	
 	if (page_nav_err_msg != NO_ERROR) 
 		cout << page_nav_err_msg;
@@ -80,7 +81,9 @@ void menu_options(int &current_page, string &option) {
 void menu_options_list(int current_page) {
 	cout << "----------Options----------" << "\n";
 	cout << "Enter " << current_page * 9 + 1 << " - " << current_page * 9 + 9 << " to select item" << "\n";
-	cout << "Enter N to next page" << "\n";
+	if (current_page == 0) {
+		cout << "Enter N to next page" << "\n";
+	}
 	if (current_page >= 1) {
 		cout << "Enter P to previous page" << "\n";
 	}

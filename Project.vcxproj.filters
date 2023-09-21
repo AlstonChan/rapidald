@@ -22,6 +22,9 @@
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{7eb191d7-36c9-4f9e-9615-4cf81cb311d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\cart\cart_actions">
+      <UniqueIdentifier>{e7bc2d22-122d-4a65-879e-c76a17e264bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="top_up.cpp">
@@ -51,9 +54,6 @@
     <ClCompile Include="termination.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cart_actions.cpp">
-      <Filter>Source Files\cart</Filter>
-    </ClCompile>
     <ClCompile Include="cart_options.cpp">
       <Filter>Source Files\cart</Filter>
     </ClCompile>
@@ -68,6 +68,27 @@
     </ClCompile>
     <ClCompile Include="cart_var.h">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_invalid.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_update.cpp">
+      <Filter>Source Files\cart\cart_actions</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_delete.cpp">
+      <Filter>Source Files\cart\cart_actions</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_add.cpp">
+      <Filter>Source Files\cart\cart_actions</Filter>
+    </ClCompile>
+    <ClCompile Include="cart_input_validation.cpp">
+      <Filter>Source Files\cart\cart_actions</Filter>
+    </ClCompile>
+    <ClCompile Include="logo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="payment_entry.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
