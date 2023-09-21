@@ -14,6 +14,8 @@ void handle_invalid(string text, int& input);
 
 void option_input_validation(char accepted_option[], int size ,string option, int current_page);
 
+void payment_entry(int& option_pay, double total_price);
+
 #define NO_ERROR "none"
 
 void cart_options(int &current_page, string &option, int &dining_option) {
@@ -48,7 +50,7 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 		cart_item_selection(option_num);
 
 		// The navigation to cart_item_selection has wiped all the
-		// text outputed in cart_entry, so the following function
+		// text outputted in cart_entry, so the following function
 		// wiped the previous cart_item_selection output and ouput back
 		// the cart_entry text.
 		cout << "\033c";
@@ -131,8 +133,12 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 				cout << "Enter your Option (1 or 2) : ";
 				cin >> option_pay;
 
+				while (cin.fail() || (option_pay <= 0 || option_pay > 2)) {
+					handle_invalid("Enter your Option (1 or 2) : ", dining_option);
+				}
+
 				if (option_pay == 1) {
-					// proceed to next function
+					payment_entry(option_pay, total_price);
 				}
 			}
 			else {

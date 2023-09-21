@@ -87,6 +87,9 @@
     <ClCompile Include="logo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="payment_entry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu_var.h">

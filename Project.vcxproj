@@ -144,6 +144,7 @@
     <ClCompile Include="menu_options.cpp" />
     <ClCompile Include="intro.cpp" />
     <ClCompile Include="option_validation.cpp" />
+    <ClCompile Include="payment_entry.cpp" />
     <ClCompile Include="termination.cpp" />
     <ClCompile Include="top_up.cpp" />
     <ClCompile Include="register_membership.cpp" />
