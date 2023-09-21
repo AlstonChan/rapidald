@@ -85,6 +85,8 @@
       <Filter>Source Files\cart\cart_actions</Filter>
     </ClCompile>
     <ClCompile Include="logo.cpp">
+      <Filter>Source Files\cart\cart_actions</Filter>
+    </ClCompile>
     <ClCompile Include="membership.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
