@@ -84,6 +84,9 @@
     <ClCompile Include="cart_input_validation.cpp">
       <Filter>Source Files\cart\cart_actions</Filter>
     </ClCompile>
+    <ClCompile Include="membership.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu_var.h">
