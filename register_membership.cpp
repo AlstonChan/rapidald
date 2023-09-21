@@ -1,50 +1,120 @@
-#include<iostream>
-#include<string>
-#include<iomanip>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
 #include<limits>
+#include <ctime>
 
 using namespace std;
 
-void register_membership() {
-	//Give customer choose is it member or not
+void registerinfo();
+void logininfo();
+void validatephonenum();
+
+int main()
+{
 	char ans;
+	//decoration
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
+	cout << setfill(' ');
+	cout << setw(15) << ' ' << "Welcome to Rapidald!" << endl;
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
+	//Give customer choose is it member or not
 	cout << "HAVE A MEMBER?" << endl;
 	cout << "YES or NO (type Y or N)" << endl;
 	cin >> ans;
-
-	//After answer redircting to which page
-	int pnum;
-	string name;
 	while (true)
 	{
-		if (ans == 'Y' || ans == 'y')
+		if (ans == 'N' || ans == 'n')
 		{
-			cout << "Please enter your phone number: +60";
-			cin >> pnum;
-			break;
+			registerinfo();
+			return 0;
 		}
-		else if (ans == 'N' || ans == 'n')
+		else if (ans == 'Y' || ans == 'y')
 		{
-			cout << "Please enter your name: ";
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			getline(cin, name);
-			cout << "Please enter your phone number: +60";
-			cin >> pnum;
-			break;
+			logininfo();
+			return 0;
 		}
 		else
 		{
-			cout << "Please enter again 'Y' or 'N'" << endl;
+			cout << "Invalid alphabet, please type again" << endl;
+			cout << "YES or NO (type Y or N)" << endl;
 			cin >> ans;
+
 		}
 	}
-	int points, value;
-	string cardnum;
-	cout << setfill('-') << setw(50) << ' ' << endl;
+	return 0;
+}
+void registerinfo()
+{
+	string name, pnum;
+	double cardnum, points, value;
+	//decoration
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
 	cout << setfill(' ');
-	cout << "Member's Name" << setw(16) << ": " << name << endl;
-	cout << "Contact Number" << setw(18) << ": +60" << pnum << endl;
-	cout << "Membership card number" << setw(7) << ": " << cardnum << endl;
-	cout << "Top-up Value" << setw(17) << ": " << "value" << endl;
-	cout << "Membership Points" << setw(12) << ": " << "points" << endl;
+	cout << setw(18) << ' ' << "Registration" << endl;
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
+	//enter info and save it into file
+	cout << "Please enter your name : ";
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	getline(cin, name);
+	cout << "Please enter your phone number : ";
+	cin >> pnum;
+	validatephonenum();
+	srand(time(NULL));
+	cardnum = rand() % 100000 + 1;
+	points = 0;
+	value = 0;
+	/*ofstream outfile;
+	outfile.open("customerinfo.txt");
+	outfile << name << pnum << cardnum;
+	outfile.close();
+
+	ifstream infile;
+	infile.open("customerinfo.txt");
+
+	if (!infile) {
+		cout << "Error opening file"; return;
+	}
+	infile >> name >> pnum >> cardnum >> points >> value;*/
+	cout << setfill(' ');
+	cout << "\n\nWelcome, " << name << "!" << endl;
+	cout << "Phone Number: " << right << setw(6) << ' ' << pnum << endl;
+	cout << "Card  Number: " << right << setw(6) << ' ' << "ABC" << cardnum << endl;
+	cout << "Top-up Value: " << right << setw(6) << ' ' << "RM " << fixed << setprecision(2) << value << endl;
+	cout << "Membership Points: " << right << setw(2) << ' ' << fixed << setprecision(2) << points << endl;
+}
+void logininfo() {
+	string name, pnum;
+	int cardnum;
+	//decoration
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
+	cout << setfill(' ');
+	cout << setw(20) << ' ' << "Login" << endl;
+	cout << setfill('-');
+	cout << setw(50) << ' ' << endl;
+	//login by using phone number
+	cout << "Pleas Enter Phone Number to Login (Ex: 0105198931)";
+	cin >> pnum;
+}
+void validatephonenum() {
+	string pnum;
+	if (pnum.length() = 10 || pnum.length() = 11)
+	{
+		if (pnum.substr(0, 2) == "01") {
+			bool isDigitsOnly = true;
+			for (size_t i = 2; i < pnum.length(); i++) {
+				if (!isdigit(pnum[i]))
+				{
+					isDigitsOnly = false;
+					break;
+				}
+			}
+		}
+	}
 }
