@@ -9,7 +9,7 @@ using namespace std;
 void membership()
 {
 	double total_balance = 100.0;
-	int current_membership_point;
+	int current_membership_point=100;
 	int new_membership_point;
 	double payment = 12.0;
 	int membership_point = 0;
@@ -17,81 +17,51 @@ void membership()
 	int membership_point_added;
 	char option_using_membership;
 
-	ifstream read_file;
-	ofstream write_file;
-	read_file.open("rapidald.txt");
-	string id;
-	int idFound = 0;
-
-	string line;
-	read_file >> line;
-	cout << line;
-	//test
-	cout << "Enter your id:";
-	cin >> id;
-
 	cout << "Do you want to use membership point." << endl;
 	cout << "Yes or No ( Type Y or N) : ";
-	cin>>option_using_membership;
+	cin >> option_using_membership;
 
-	while (true)
+	while(option_using_membership == 'Y' || option_using_membership == 'y')
 	{
-		if (option_using_membership == 'Y' || 'y')
-			continue;
-		if (!read_file.is_open())
+		
+		if (current_membership_point >= 50)
 		{
-			cout << "fail open 'rapidald.txt'." << endl;
-			return;
-		}
-
-		//find id and membership point
-		while (getline(read_file, line))
-		{
-
-			if (line == id)
+			while (membership_point < 50)
 			{
-				idFound = 1;
-				read_file >> current_membership_point;
-				if (current_membership_point >= 50)
-				{
-					while (membership_point < 50)
-					{
-						cout << "Payment : RM" << payment << endl;
-						cout << "Your balance : RM" << total_balance << endl;
-						cout << "Membership point : " << current_membership_point << endl;
-						cout << "**10 Membership points = RM0.10**" << endl;
-						cout << "**You have to use at least 50 points**" << endl;
-						cout << "How much point do you want to spend : ";
-						cin >> membership_point;
-						if (membership_point < 50)
-							cout << "Sorry.You have to use at least 50 points.\n" << endl;
-						continue;
-						if (total_balance < payment - double(membership_point / 100))
-							cout << "Your balance is not enough to cover your payment. Please try again." << endl;
-						continue;
-						if (membership_point >= 50)
-							break;
-					}
-				}
-				else
-				{
-					cout << "Sorry.Your membership point is below 50 points.\n" << endl;
-				}
+				cout << setfill('-') << setw(50) << ' ' << endl;
+				cout << setfill(' ');
+				cout << "\nPayment : RM" << payment << endl;
+				cout << "Your balance : RM" << total_balance << endl;
+				cout << "Membership point : " << current_membership_point << endl;
+				cout << "**10 Membership points = RM0.10**" << endl;
+				cout << "**You have to use at least 50 points**" << endl;
+				cout << "How much point do you want to spend : ";
+				cin >> membership_point;
+				if (membership_point < 50)
+					cout << "Sorry.You have to use at least 50 points.\n" << endl;
+				
+				if (total_balance < payment - double(membership_point / 100))
+					cout << "Your balance is not enough to cover your payment. Please try again." << endl;
+				
 			}
 		}
-
-		//test
-		if (idFound == 0)
-		{
-			cout << "error" << endl;
-		}
-		else if (option_using_membership == 'N' || 'n')
-			break;
 		else
-			cout << "This is not the option.Please try again."<<endl;
-		continue;
-
+		{
+			cout << "Sorry.Your membership point is below 50 points.\n" << endl;
+		}
+		break;
 	}
+	while (option_using_membership == 'N' || option_using_membership == 'n')
+	{
+		cout << " " << endl;
+		break;
+	}
+	while(option_using_membership!='n'&& option_using_membership != 'N' && option_using_membership != 'y' && option_using_membership != 'y')
+	{
+		cout << "This is not the option.Please try again." << endl;
+		break;
+	}
+
 
 	latest_payment = (payment - ((membership_point) / static_cast<double>(100)));
 
@@ -110,7 +80,6 @@ void membership()
 	cout << setfill('-') << setw(50) << ' ' << endl;
 	cout << setfill(' ');
 
-	cout << "\n\nThank you for having our sevices." << endl;
+	cout << "Thank you for having our services.";
 
-	read_file.close();
 }
