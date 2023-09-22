@@ -68,7 +68,7 @@ void registerinfo()
 	cout << "Please enter your name : ";
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, name);
-	cout << "Please enter your phone number : ";
+	cout << "Please enter your phone number : (Ex: 0123456789)";
 	cin >> pnum;
 	cout << "\033c";
 	srand(time(NULL));
