@@ -6,89 +6,58 @@ using namespace std;
 
 void header(void);
 void handle_invalid(string text, int& input);
+void termination(void);
 
 void top_up() {
-    
-    header();
 
-    double customerBalance = 0.0;
-    double amount;
+    double customer_balance = 0.0;
+    double amount = 0.0;
     int num;
 
+    cout << "\033c";
+
     header();
 
-    do {
-        cout << "1. Top up amount.\n2. Balance of top up amount.\n3. Top up finished.\n";
-        cout << "-------------------" << endl;
-        cout << "Enter your choice: ";
-        cin >> num;
+    cout << "Select top up amount value: \n1. RM5.00\n2. RM10.00\n3. RM30.00\n4. RM50.00\n";
+    cout << "-------------------" << endl;
+    cout << "Enter your choice: ";
 
-        while (cin.fail() || num <= 0 || num > 3) {
-            handle_invalid("Enter your choice : ", num);
-        }
+    int top_up_amount;
+    cin >> top_up_amount;
 
-        switch (num) {
-            case 1: 
-                cout << "\033c";
+    while (cin.fail() || top_up_amount <= 0 || top_up_amount > 4) {
+        handle_invalid("Enter your choice : ", top_up_amount);
+    }
 
-                header();
-
-                cout << "Select top up amount value: \n1. RM5.00\n2. RM10.00\n3. RM30.00\n4. RM50.00\n";
-                cout << "-------------------" << endl;
-                cout << "Enter your choice: ";
-
-                int topupAmount;
-                cin >> topupAmount;
-
-                switch (topupAmount) {
-                    case 1:
-                        amount = 5.0;
-                        break;
-                    case 2:
-                        amount = 10.0;
-                        break;
-                    case 3:
-                        amount = 30.0;
-                        break;
-                    case 4:
-                        amount = 50.0;
-                        break;
-                    default:
-                        cout << "\nInvalid top up amount.\n" << endl;
-                        continue;
-                    }
-
-                switch (static_cast<int>(amount)) {
-                    case 5:
-                    case 10:
-                    case 30:
-                    case 50:
-                        customerBalance += amount - 0.5;
-        
-                        cout << "\nTop up successful. Current balance: RM" << fixed << setprecision(2) << customerBalance << "\n\n";
-     
-                        break;
-                    default:
-                        cout << "\nInvalid top up amount." << endl << endl ;
-                        cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
-                        break;
-                    }
-             break;
-            
+    switch (top_up_amount) {
+        case 1:
+            amount = 5.0;
+            break;
         case 2:
-            cout << "\nCurrent balance: RM" << fixed << setprecision(2) << customerBalance << endl << endl ;
+            amount = 10.0;
             break;
-
         case 3:
-            header();
-
-            cout << "\nThank you for your top up. Enjoy your meal.\n";
+            amount = 30.0;
             break;
+        case 4:
+            amount = 50.0;
+            break;
+    }
 
+    switch (static_cast<int>(amount)) {
+        case 5:
+        case 10:
+        case 30:
+        case 50:
+            customer_balance += amount - 0.5;
+
+            cout << "\nTop up successful. Current balance: RM" << fixed << setprecision(2) << customer_balance << "\n\n";
+            break;
         default:
-            // This clears the terminal for clarity sake
-            // refer to https://stackoverflow.com/questions/47503734/what-does-printf-033c-mean
-            cout << "\033c";
-        }
-    } while (num != 3);
+            cout << "\nInvalid top up amount." << endl << endl;
+            cout << "Current balance: RM" << fixed << setprecision(2) << customer_balance << endl;
+            break;
+    }
+       
+    // write balance to file
 }

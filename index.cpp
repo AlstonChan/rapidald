@@ -6,8 +6,6 @@ using namespace std;
 
 void menu_entry(void);
 void intro(void);
-void top_up(void);
-void register_membership(void);
 
 Cart cart[100] = {};
 
@@ -23,9 +21,7 @@ int main() {
 	}
 
 	//intro();
-	top_up();
-	//register_membership();
-	//menu_entry();
+	menu_entry();
 
 	return 0;
 }

@@ -33,9 +33,6 @@
     <ClCompile Include="intro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="register_membership.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="header.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
