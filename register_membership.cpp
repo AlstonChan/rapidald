@@ -6,36 +6,40 @@
 #include <ctime>
 
 using namespace std;
-
+void menu_entry(void);
+void header();
+void register_membership();
 void registerinfo();
 void logininfo();
-void validatephonenum();
+void handle_invalid(string text, int& input);
 
-int main()
+void register_membership()
 {
 	char ans;
 	//decoration
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
 	cout << setfill(' ');
-	cout << setw(15) << ' ' << "Welcome to Rapidald!" << endl;
+	cout << setw(15) << ' ' << "Welcome To Rapidald!" << endl;
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
+
 	//Give customer choose is it member or not
-	cout << "HAVE A MEMBER?" << endl;
-	cout << "YES or NO (type Y or N)" << endl;
+	cout << "HAVE A MEMBER? ('Y' for yes, 'N' for no)" << endl;
 	cin >> ans;
-	while (true)
+	while(true)
 	{
 		if (ans == 'N' || ans == 'n')
 		{
+			cout << "\033c";
 			registerinfo();
-			return 0;
+			break;
 		}
 		else if (ans == 'Y' || ans == 'y')
 		{
+			cout << "\033c";
 			logininfo();
-			return 0;
+			break;
 		}
 		else
 		{
@@ -45,52 +49,56 @@ int main()
 
 		}
 	}
-	return 0;
+	return;
 }
 void registerinfo()
 {
 	string name, pnum;
-	double cardnum, points, value;
+	double points, value;
+	int cardnum, proceed;
 	//decoration
+	cout << setfill(' ');
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
 	cout << setfill(' ');
-	cout << setw(18) << ' ' << "Registration" << endl;
+	cout << setw(20) << ' ' << "Register" << endl;
 	cout << setfill('-');
+	
 	cout << setw(50) << ' ' << endl;
-	//enter info and save it into file
 	cout << "Please enter your name : ";
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	getline(cin, name);
 	cout << "Please enter your phone number : ";
 	cin >> pnum;
-	validatephonenum();
+	cout << "\033c";
 	srand(time(NULL));
 	cardnum = rand() % 100000 + 1;
-	points = 0;
-	value = 0;
-	/*ofstream outfile;
-	outfile.open("customerinfo.txt");
-	outfile << name << pnum << cardnum;
-	outfile.close();
+	points = 0.00;
+	value = 0.00;
 
-	ifstream infile;
-	infile.open("customerinfo.txt");
-
-	if (!infile) {
-		cout << "Error opening file"; return;
-	}
-	infile >> name >> pnum >> cardnum >> points >> value;*/
 	cout << setfill(' ');
 	cout << "\n\nWelcome, " << name << "!" << endl;
-	cout << "Phone Number: " << right << setw(6) << ' ' << pnum << endl;
-	cout << "Card  Number: " << right << setw(6) << ' ' << "ABC" << cardnum << endl;
-	cout << "Top-up Value: " << right << setw(6) << ' ' << "RM " << fixed << setprecision(2) << value << endl;
-	cout << "Membership Points: " << right << setw(2) << ' ' << fixed << setprecision(2) << points << endl;
+	cout << "Phone Number: " << ' ' << pnum << endl;
+	cout << "Card  Number: " << ' ' << "ABC" << cardnum << endl;
+	cout << "Top-up Value: " << ' ' << "RM " << fixed << setprecision(2) << value << endl;
+	cout << "Membership Points: " << ' ' << fixed << setprecision(2) << points << endl;
+	cout << "Press 1 to proceed." << endl;
+	cin >> proceed;
+	if (proceed == 1)
+	{
+		menu_entry();
+		return;
+	}
+	else
+	{
+		handle_invalid("Enter your choice: ", proceed);
+		return;
+	}
 }
 void logininfo() {
-	string name, pnum;
-	int cardnum;
+	string name, pnum, cardnum;
+	double points, value;
+	int proceed;
 	//decoration
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
@@ -99,22 +107,24 @@ void logininfo() {
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
 	//login by using phone number
-	cout << "Pleas Enter Phone Number to Login (Ex: 0105198931)";
+	cout << "Pleas Enter Phone Number to Login (Ex: 0105198931)"<< endl;
 	cin >> pnum;
-}
-void validatephonenum() {
-	string pnum;
-	if (pnum.length() = 10 || pnum.length() = 11)
+	cout << setfill(' ');
+	cout << "Welcome, " << name << "!" << endl;
+	cout << "Phone Number: " << pnum << endl;
+	cout << "Card  Number: " << "ABC" << cardnum << endl;
+	cout << "Top-up Value: " << "RM " << fixed << setprecision(2) << "value" << endl;
+	cout << "Membership Points: " << fixed << setprecision(2) << "points" << endl;
+	cout << "Press 1 to proceed." << endl;
+	cin >> proceed;
+	if (proceed == 1)
 	{
-		if (pnum.substr(0, 2) == "01") {
-			bool isDigitsOnly = true;
-			for (size_t i = 2; i < pnum.length(); i++) {
-				if (!isdigit(pnum[i]))
-				{
-					isDigitsOnly = false;
-					break;
-				}
-			}
-		}
+		menu_entry();
+		return;
 	}
+	else
+	{
+		handle_invalid("Enter your choice: ", proceed);
+	}
+
 }
