@@ -107,7 +107,10 @@ void membership()
 	cout << "\nMembership point will be added : " << membership_point_added << endl;
 	cout << "Your membership point : " << new_membership_point << endl;
 
+	cout << setfill('-') << setw(50) << ' ' << endl;
+	cout << setfill(' ');
 
+	cout << "\n\nThank you for having our sevices." << endl;
 
 	read_file.close();
 }
