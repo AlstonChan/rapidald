@@ -4,10 +4,13 @@
 
 using namespace std;
 
-void header();
+void header(void);
 void handle_invalid(string text, int& input);
 
 void top_up() {
+    
+    header();
+
     double customerBalance = 0.0;
     double amount;
     int num;
