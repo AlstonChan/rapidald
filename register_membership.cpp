@@ -55,7 +55,7 @@ void registerinfo()
 {
 	string name, pnum;
 	double points, value;
-	int cardnum, proceed;
+	int cardnum;
 	//decoration
 	cout << setfill(' ');
 	cout << setfill('-');
@@ -83,22 +83,10 @@ void registerinfo()
 	cout << "Top-up Value: " << ' ' << "RM " << fixed << setprecision(2) << value << endl;
 	cout << "Membership Points: " << ' ' << fixed << setprecision(2) << points << endl;
 	cout << "Press 1 to proceed." << endl;
-	cin >> proceed;
-	if (proceed == 1)
-	{
-		menu_entry();
-		return;
-	}
-	else
-	{
-		handle_invalid("Enter your choice: ", proceed);
-		return;
-	}
 }
 void logininfo() {
 	string name, pnum, cardnum;
 	double points, value;
-	int proceed;
 	//decoration
 	cout << setfill('-');
 	cout << setw(50) << ' ' << endl;
@@ -115,16 +103,4 @@ void logininfo() {
 	cout << "Card  Number: " << "ABC" << cardnum << endl;
 	cout << "Top-up Value: " << "RM " << fixed << setprecision(2) << "value" << endl;
 	cout << "Membership Points: " << fixed << setprecision(2) << "points" << endl;
-	cout << "Press 1 to proceed." << endl;
-	cin >> proceed;
-	if (proceed == 1)
-	{
-		menu_entry();
-		return;
-	}
-	else
-	{
-		handle_invalid("Enter your choice: ", proceed);
-	}
-
 }
