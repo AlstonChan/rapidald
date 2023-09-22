@@ -4,21 +4,33 @@
 
 using namespace std;
 
+void header(void);
+void handle_invalid(string text, int& input);
+
 void top_up() {
+    
+    header();
+
     double customerBalance = 0.0;
     double amount;
     int num;
 
     do {
-        cout << "1. Top up amount.\n2. Balance of top up amount.\n3. Top up finished.\n";
+        cout << "1. Top up amount.\n2. Balance of top up amount.\n3. Top up finished.\n\n";
         cout << "Enter your choice: ";
         cin >> num;
+
+        while (cin.fail() || (num < 0 || num >= 5)) {
+            handle_invalid("Enter your input : ", num);
+        }
 
         switch (num) {
             case 1: 
                 cout << "\033c";
 
+                cout << "-------------------\n";
                 cout << "Select top up amount value: \n1. RM5.00\n2. RM10.00\n3. RM30.00\n4. RM50.00\n";
+                cout << "-------------------\n";
                 cout << "Enter your choice: ";
 
                 int topupAmount;
@@ -48,24 +60,24 @@ void top_up() {
                     case 30:
                     case 50:
                         customerBalance += amount - 0.5;
-                        cout << "Top up successful. Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
+                        cout << "-----------------------------------------\n";
+                        cout << "Top up successful. Current balance: RM" << fixed << setprecision(2) << customerBalance << endl << endl;
                         break;
                     default:
                         cout << "Invalid top up amount." << endl;
-                        cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
+                        cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl << endl;
                         break;
                     }
              break;
             
         case 2:
-            cout << "-------------------";
-            cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl;
-            cout << "-------------------";
+            cout << "-------------------\n";
+            cout << "Current balance: RM" << fixed << setprecision(2) << customerBalance << endl << endl;
             break;
 
         case 3:
-            cout << "Thank you for your top up. Enjoy your meal.\n";
-            break;
+            cout << "\nThank you for your top up. Enjoy your meal.\n";
+            break;  
 
         default:
             // This clears the terminal for clarity sake
