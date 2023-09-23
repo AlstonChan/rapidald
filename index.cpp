@@ -9,6 +9,9 @@ void intro(void);
 
 Cart cart[100] = {};
 
+const double SERVICE_CHARGE = 0.1;
+const int PACKAGING_PRICE = 2;
+
 int main() {
 
 	for (size_t i = 0; i < 100; i++) {

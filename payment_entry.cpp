@@ -7,6 +7,8 @@ void header(void);
 void handle_invalid(string text, int& input);
 void top_up(void);
 
+void payment_list(int& option_pay, double total_price);
+
 #define NO_ERROR "none"
 
 void payment_entry(int& option_pay, double total_price) {
@@ -51,9 +53,12 @@ void payment_entry(int& option_pay, double total_price) {
 			top_up();
 			break;
 		case 2:
-			if (balance < total_price) {
-				page_nav_err_msg = "You have insufficient balance\n";
-			}
+			//if (balance < total_price) {
+			//	page_nav_err_msg = "You have insufficient balance\n";
+			//}
+			//else if (balance >= total_price) {
+				payment_list(option_pay, total_price);
+			//}
 			break;
 		}
 

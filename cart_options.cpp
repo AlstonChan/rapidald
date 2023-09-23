@@ -19,8 +19,6 @@ void payment_entry(int& option_pay, double total_price);
 #define NO_ERROR "none"
 
 void cart_options(int &current_page, string &option, int &dining_option) {
-	const double SERVICE_CHARGE = 0.1;
-	const int PACKAGING_PRICE = 2;
 	const int SIZE = 10;
 	char accepted_option[SIZE] = { 'N', 'n', 'P', 'p', 'M', 'm', 'F', 'f' ,'E', 'e'};
 	static string page_nav_err_msg = NO_ERROR;
@@ -121,7 +119,7 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 
 				} else if (dining_option == 2) {
 					total_price += PACKAGING_PRICE;
-					cout << "\nPackaging price : RM" << PACKAGING_PRICE;
+					cout << "\nPackaging Price : RM" << PACKAGING_PRICE;
 				}
 
 				cout << "\nTotal Price : RM" << fixed << setprecision(2) << total_price;

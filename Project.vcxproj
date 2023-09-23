@@ -145,6 +145,7 @@
     <ClCompile Include="intro.cpp" />
     <ClCompile Include="option_validation.cpp" />
     <ClCompile Include="payment_entry.cpp" />
+    <ClCompile Include="payment_list.cpp" />
     <ClCompile Include="termination.cpp" />
     <ClCompile Include="top_up.cpp" />
   </ItemGroup>
