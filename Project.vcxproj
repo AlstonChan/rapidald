@@ -133,11 +133,12 @@
     <ClCompile Include="cart_item_selection.cpp" />
     <ClCompile Include="cart_update.cpp" />
     <ClCompile Include="cart_var.h" />
+    <ClCompile Include="end_option.cpp" />
     <ClCompile Include="handle_invalid.cpp" />
     <ClCompile Include="header.cpp" />
     <ClCompile Include="index.cpp" />
     <ClCompile Include="logo.cpp" />
-    <ClCompile Include="membership.cpp" />
+    <ClCompile Include="points.cpp" />
     <ClCompile Include="menu_entry.cpp" />
     <ClCompile Include="cart_entry.cpp" />
     <ClCompile Include="cart_options.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="option_validation.cpp" />
     <ClCompile Include="payment_entry.cpp" />
     <ClCompile Include="payment_list.cpp" />
+    <ClCompile Include="refund.cpp" />
     <ClCompile Include="termination.cpp" />
     <ClCompile Include="top_up.cpp" />
     <ClCompile Include="register_membership.cpp" />
