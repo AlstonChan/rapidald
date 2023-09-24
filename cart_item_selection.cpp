@@ -26,9 +26,8 @@ void cart_item_selection(int cart_num) {
 	if (!cart[cart_id].is_ala_cart) {
 		cout << menu_list_item[cart[cart_id].food_id][0] << " with ";
 		cout << menu_list_item[cart[cart_id].sets_drinks_id][0] << " & ";
-		cout << menu_list_item[cart[cart_id].sets_snacks_id][0] << "\n";
-		cout << "RM " << cart[cart_id].quantity * (stoi(menu_list_item[cart[cart_id].food_id][2]) + 6);
-		cout << "(Set meal) \n";
+		cout << menu_list_item[cart[cart_id].sets_snacks_id][0] << " (Set meal)\n";
+		cout << "RM " << cart[cart_id].quantity * cart[cart_id].price;
 	}
 	else {
 		cout << menu_list_item[cart[cart_id].food_id][0] << "\n";

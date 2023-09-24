@@ -4,12 +4,12 @@
 
 using namespace std;
 
-void menu_entry(void);
-void intro(void);
-void top_up(void);
 void register_membership(void);
 
 Cart cart[100] = {};
+
+const double SERVICE_CHARGE = 0.1;
+const int PACKAGING_PRICE = 2;
 
 int main() {
 
@@ -22,10 +22,7 @@ int main() {
 		cart[i].sets_snacks_id = -1;
 	}
 
-	//intro();
-	//top_up();
-	//register_membership();
-	menu_entry();
+	register_membership();
 
 	return 0;
 }

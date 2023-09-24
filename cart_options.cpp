@@ -14,11 +14,11 @@ void handle_invalid(string text, int& input);
 
 void option_input_validation(char accepted_option[], int size ,string option, int current_page);
 
+void payment_entry(int& option_pay, double total_price, int sub_total);
+
 #define NO_ERROR "none"
 
 void cart_options(int &current_page, string &option, int &dining_option) {
-	const double SERVICE_CHARGE = 0.1;
-	const int PACKAGING_PRICE = 2;
 	const int SIZE = 10;
 	char accepted_option[SIZE] = { 'N', 'n', 'P', 'p', 'M', 'm', 'F', 'f' ,'E', 'e'};
 	static string page_nav_err_msg = NO_ERROR;
@@ -48,7 +48,7 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 		cart_item_selection(option_num);
 
 		// The navigation to cart_item_selection has wiped all the
-		// text outputed in cart_entry, so the following function
+		// text outputted in cart_entry, so the following function
 		// wiped the previous cart_item_selection output and ouput back
 		// the cart_entry text.
 		cout << "\033c";
@@ -105,12 +105,14 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 					handle_invalid("Enter your input (1 or 2) : ", dining_option);
 				}
 
-				double total_price = 0;
+				double total_price = 0.0;
+				int sub_total = 0;
 				for (size_t i = 0; i < cart_size; i++) {
 					total_price += cart[i].price;
 				}
 
 				cout << "\nSubtotal : RM" << total_price;
+				sub_total = total_price;
 
 				if (dining_option == 1) {
 					double service_charge = total_price * SERVICE_CHARGE;
@@ -119,7 +121,7 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 
 				} else if (dining_option == 2) {
 					total_price += PACKAGING_PRICE;
-					cout << "\nPackaging price : RM" << PACKAGING_PRICE;
+					cout << "\nPackaging Price : RM" << PACKAGING_PRICE;
 				}
 
 				cout << "\nTotal Price : RM" << fixed << setprecision(2) << total_price;
@@ -131,8 +133,12 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 				cout << "Enter your Option (1 or 2) : ";
 				cin >> option_pay;
 
+				while (cin.fail() || (option_pay <= 0 || option_pay > 2)) {
+					handle_invalid("Enter your Option (1 or 2) : ", option_pay);
+				}
+
 				if (option_pay == 1) {
-					// proceed to next function
+					payment_entry(option_pay, total_price, sub_total);
 				}
 			}
 			else {

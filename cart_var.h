@@ -1,3 +1,6 @@
+#ifndef CART_VAR_H
+#define CART_VAR_H
+
 #include<string>
 
 using namespace std;
@@ -16,3 +19,8 @@ extern struct Cart_Response {
 };
 extern Cart cart[100];
 extern int cart_size;
+
+extern const double SERVICE_CHARGE;
+extern const int PACKAGING_PRICE;
+
+#endif

@@ -145,9 +145,12 @@
     <ClCompile Include="menu_options.cpp" />
     <ClCompile Include="intro.cpp" />
     <ClCompile Include="option_validation.cpp" />
+    <ClCompile Include="payment_entry.cpp" />
+    <ClCompile Include="payment_list.cpp" />
     <ClCompile Include="termination.cpp" />
     <ClCompile Include="top_up.cpp" />
     <ClCompile Include="register_membership.cpp" />
+    <ClCompile Include="balance_update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu_var.h" />
