@@ -150,7 +150,7 @@ void login_info() {
 
 		cout << "\nWelcome, " << name << "!" << endl;
 		cout << "Phone Number: " << phone_num << endl;
-		cout << "Card  Number: " << card_id << endl;
+		cout << "Card Number: " << card_id << endl;
 		cout << "Card Balance: " << "RM " << fixed << setprecision(2) << balance << endl;
 		cout << "Membership Points: " << points << endl << endl;
 

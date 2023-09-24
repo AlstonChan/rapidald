@@ -65,5 +65,5 @@ void top_up() {
 
     cout << "\nTop up successful. Current balance: RM" << fixed << setprecision(2) << customer_prev_balance + customer_balance << "\n\n";
 
-    this_thread::sleep_for(chrono::seconds(2));
+    this_thread::sleep_for(chrono::seconds(3));
 }

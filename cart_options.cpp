@@ -134,7 +134,7 @@ void cart_options(int &current_page, string &option, int &dining_option) {
 				cin >> option_pay;
 
 				while (cin.fail() || (option_pay <= 0 || option_pay > 2)) {
-					handle_invalid("Enter your Option (1 or 2) : ", dining_option);
+					handle_invalid("Enter your Option (1 or 2) : ", option_pay);
 				}
 
 				if (option_pay == 1) {

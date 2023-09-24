@@ -88,8 +88,7 @@ void payment_entry(int& option_pay, double total_price, int sub_total) {
 		case 2:
 			if (balance < total_price) {
 				page_nav_err_msg = "You have insufficient balance\n";
-			}
-			else if (balance >= total_price) {
+			} else if (balance >= total_price) {
 				payment_list(option_pay, total_price, sub_total);
 			}
 			break;

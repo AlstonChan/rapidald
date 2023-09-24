@@ -119,5 +119,5 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 
 	cout << "\nPayment successful. Current balance: RM" << fixed << setprecision(2) << balance - total_price << "\n\n";
 
-	this_thread::sleep_for(chrono::seconds(2));
+	this_thread::sleep_for(chrono::seconds(3));
 }
