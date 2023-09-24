@@ -68,14 +68,14 @@ void register_info() {
 
 	srand(time(NULL));
 
-	card_head = stoi(to_string((rand() % 10 + 1)) + "00000");
+	card_head = stoi(to_string((rand() % 9 + 1)) + "00000");
 	card_num = card_head + rand() % 100000;
 	card_id = "ABC" + to_string(card_num);
 
 	cout << "\nWelcome, " << name << "!" << endl;
 	cout << "Phone Number : " << phone_num << endl;
 	cout << "Card Number : " << card_id << endl;
-	cout << "Card Value : " << "RM " << fixed << setprecision(2) << 0.00 << endl;
+	cout << "Card Balance : " << "RM " << fixed << setprecision(2) << 0.00 << endl;
 	cout << "Membership Points: " << 0 << endl << endl;
 
 	registered_user_phone_num = phone_num;
@@ -99,7 +99,7 @@ void login_info() {
 
 	string name, phone_num, card_id;
 	char option;
-	double value = 0.0;
+	double balance = 0.0;
 	int points = 0;
 
 	cout << "Please enter your phone number to login (Ex: 012-3456789) : ";
@@ -134,7 +134,7 @@ void login_info() {
 					is_matching_member_line_count++;
 					break;
 				case 4:
-					value = stod(line);
+					balance = stod(line);
 					is_matching_member_line_count++;
 					break;
 				case 5:
@@ -151,7 +151,7 @@ void login_info() {
 		cout << "\nWelcome, " << name << "!" << endl;
 		cout << "Phone Number: " << phone_num << endl;
 		cout << "Card  Number: " << card_id << endl;
-		cout << "Card Value: " << "RM " << fixed << setprecision(2) << value << endl;
+		cout << "Card Balance: " << "RM " << fixed << setprecision(2) << balance << endl;
 		cout << "Membership Points: " << points << endl << endl;
 
 		cout << "You are now logged in.";
@@ -168,6 +168,19 @@ void phone_num_validation(bool is_register, string text, string& phone_num) {
 	bool has_invalid_char = false;
 	bool has_matching_member = false;
 
+	read_file.open("member_details.txt");
+
+	if (read_file.is_open()) {
+		string line;
+
+		while (getline(read_file, line)) {
+			if (line == phone_num) {
+				has_matching_member = true;
+			}
+		}
+		read_file.close();
+	}
+
 	if (phone_num.length() == 11 || phone_num.length() == 12)
 		for (size_t i = 0; i < phone_num.length(); i++) {
 			if (!isdigit(phone_num[i])) {
@@ -180,19 +193,12 @@ void phone_num_validation(bool is_register, string text, string& phone_num) {
 	else
 		has_invalid_char = true;
 
-	if (is_register) {
-		read_file.open("member_details.txt");
+	if (!is_register && !has_invalid_char && !has_matching_member) {
+		cout << "\nThis phone number is not registered! Try another.\n";
+		cout << text;
+		cin >> phone_num;
 
-		if (read_file.is_open()) {
-			string line;
-
-			while (getline(read_file, line)) {
-				if (line == phone_num) {
-					has_matching_member = true;
-				}
-			}
-			read_file.close();
-		}
+		phone_num_validation(is_register, text, phone_num);
 	}
 
 	if (has_invalid_char) {
@@ -203,7 +209,7 @@ void phone_num_validation(bool is_register, string text, string& phone_num) {
 		phone_num_validation(is_register, text, phone_num);
 	}
 
-	if (has_matching_member) {
+	if (is_register && has_matching_member) {
 		cout << "\nPhone number has been taken! Try another.\n";
 		cout << text;
 		cin >> phone_num;

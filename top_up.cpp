@@ -1,16 +1,20 @@
 #include<iostream>
 #include<iomanip>
-#include<string>
+#include <chrono>
+#include <thread>
+
+#include "menu_var.h"
 
 using namespace std;
 
 void header(void);
 void handle_invalid(string text, int& input);
 void termination(void);
+void balance_update(OPERATIONS operation, double value);
 
 void top_up() {
 
-    double customer_balance = 0.0;
+    double customer_balance = 0.0, customer_prev_balance = 0.0;
     double amount = 0.0;
     int num;
 
@@ -50,14 +54,16 @@ void top_up() {
         case 30:
         case 50:
             customer_balance += amount - 0.5;
-
-            cout << "\nTop up successful. Current balance: RM" << fixed << setprecision(2) << customer_balance << "\n\n";
             break;
         default:
             cout << "\nInvalid top up amount." << endl << endl;
-            cout << "Current balance: RM" << fixed << setprecision(2) << customer_balance << endl;
+            cout << "Current balance: RM" << fixed << setprecision(2) << customer_balance << "\n\n";
             break;
     }
-       
-    // write balance to file
+
+    balance_update(ADDITION, customer_balance);
+
+    cout << "\nTop up successful. Current balance: RM" << fixed << setprecision(2) << customer_prev_balance + customer_balance << "\n\n";
+
+    this_thread::sleep_for(chrono::seconds(2));
 }

@@ -149,6 +149,7 @@
     <ClCompile Include="termination.cpp" />
     <ClCompile Include="top_up.cpp" />
     <ClCompile Include="register_membership.cpp" />
+    <ClCompile Include="balance_update.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu_var.h" />

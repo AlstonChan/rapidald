@@ -99,6 +99,9 @@
     <ClCompile Include="payment_list.cpp">
       <Filter>Source Files\payment</Filter>
     </ClCompile>
+    <ClCompile Include="balance_update.cpp">
+      <Filter>Source Files\payment</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="menu_var.h">
