@@ -90,6 +90,9 @@
     <ClCompile Include="logo.cpp">
       <Filter>Source Files\misc</Filter>
     </ClCompile>
+    <ClCompile Include="membership.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="termination.cpp">
       <Filter>Source Files\misc</Filter>
     </ClCompile>
