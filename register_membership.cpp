@@ -228,7 +228,7 @@ void register_options(char& option) {
 
 	while (!isalpha(option) || (isalpha(option) && (tolower(option) != 'm' && tolower(option) != 'e'))) {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "\nInvalid name! Try again.\n";
+		cout << "\nInvalid input! Try again.\n";
 		cout << "Enter your input : ";
 		cin >> option;
 	}
