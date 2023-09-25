@@ -116,7 +116,7 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 		cout << "Enter P to previous page" << "\n\n";
 
 		if (points_applied) {
-			cout << points_to_spend << " Membership points is applied\n\n";
+			cout << points_to_spend << " Membership points has applied\n\n";
 		}
 
 		if (page_nav_err_msg != NO_ERROR)
@@ -134,31 +134,34 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 
 		if (tolower(option) == 'k') {
 			if (member_points >= 50) {
+				cout << "\n**Membership points is not refundable once used**" << endl;
 				cout << "\n**RM 1 spent = 1 Membership points**" << endl;
 				cout << "**10 Membership points = RM0.10**" << endl;
 				cout << "**You have to use at least 50 points**" << endl;
-				cout << "How much point do you want to spend : ";
+				cout << "How much point do you want to spend (50, 60, 70, value multiple of 10) : ";
 				cin >> points_to_spend;
 
-				// TODO: fix infinite loop
 				while (cin.fail() || points_to_spend < 50 || points_to_spend > member_points) {
-					if (points_to_spend < 50) {
-						cin.ignore(numeric_limits<streamsize>::max(), '\n');
-						cout << "Sorry.You have to use at least 50 points.\n" << endl;
-						cout << "How much point do you want to spend : ";
-						cin >> points_to_spend;
-					}
-					else if (points_to_spend > member_points) {
-						cin.ignore(numeric_limits<streamsize>::max(), '\n');
-						cout << "You have insufficient points to redeem.\n" << endl;
-						cout << "How much point do you want to spend : ";
-						cin >> points_to_spend;
-					}
-					else
+					if (cin.fail())
 						handle_invalid("How much point do you want to spend : ", points_to_spend);
+					else {
+						if (points_to_spend < 50) {
+							cin.ignore(numeric_limits<streamsize>::max(), '\n');
+							cout << "Sorry.You have to use at least 50 points.\n" << endl;
+							cout << "How much point do you want to spend : ";
+							cin >> points_to_spend;
+						}
+						else if (points_to_spend > member_points) {
+							cin.ignore(numeric_limits<streamsize>::max(), '\n');
+							cout << "You have insufficient points to redeem.\n" << endl;
+							cout << "How much point do you want to spend : ";
+							cin >> points_to_spend;
+						}
+					}
 				}
 
 				points(points_to_spend, total_price);
+				points_applied = true;
 				page_nav_err_msg = NO_ERROR;
 
 			} else {

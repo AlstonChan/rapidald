@@ -13,7 +13,7 @@ void end_option(double total_price, int points_added) {
 	cout << "1. Cancel the last purchase.\n";
 	cout << "2. Exit application.\n\n";
 
-	cout << "Enter your option";
+	cout << "Enter your option : ";
 	cin >> last_option;
 
 	while (cin.fail() || last_option <= 0 || last_option > 2) {
