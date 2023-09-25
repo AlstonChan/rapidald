@@ -72,7 +72,7 @@ void refund(double total_price, int points_added) {
 		cout << "Error renaming the temporary file." << endl;
 	}
 
-	cout << "\nPayment successful. Current balance: RM" << fixed << setprecision(2) << balance + total_price << "\n";
+	cout << "\nRefund successful. Current balance: RM" << fixed << setprecision(2) << balance + total_price << "\n";
 	cout << points_added << " Membership point has been deducted." << "\n\n";
 
 	this_thread::sleep_for(chrono::seconds(3));
