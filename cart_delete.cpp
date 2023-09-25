@@ -60,25 +60,25 @@ Cart_Response cart_delete(int cart_id_to_delete) {
 }
 
 bool cart_delete_item(int cart_id) {
-	if ((cart_id + 1) != cart_size) {
-		for (size_t i = cart_id + 1; i < cart_size; i++) {
-			cart[i - 1].food_id = cart[i].food_id;
-			cart[i - 1].quantity = cart[i].quantity;
-			cart[i - 1].price = cart[i].price;
-			cart[i - 1].is_ala_cart = cart[i].is_ala_cart;
-			cart[i - 1].sets_drinks_id = cart[i].sets_drinks_id;
-			cart[i - 1].sets_snacks_id = cart[i].sets_snacks_id;
-		}
-	}
+	    if ((cart_id + 1) != cart_size) {
+        for (size_t i = cart_id + 1; i < cart_size; i++) {
+            cart[i - 1].food_id = cart[i].food_id;
+            cart[i - 1].quantity = cart[i].quantity;
+            cart[i - 1].price = cart[i].price;
+            cart[i - 1].is_ala_cart = cart[i].is_ala_cart;
+            cart[i - 1].sets_drinks_id = cart[i].sets_drinks_id;
+            cart[i - 1].sets_snacks_id = cart[i].sets_snacks_id;
+        }
+    }
 
-	cart[cart_size - 1].food_id = -1;
-	cart[cart_size - 1].quantity = -1;
-	cart[cart_size - 1].price = -1;
-	cart[cart_size - 1].is_ala_cart = false;
-	cart[cart_size - 1].sets_drinks_id = -1;
-	cart[cart_size - 1].sets_snacks_id = -1;
+    cart[cart_size - 1].food_id = -1;
+    cart[cart_size - 1].quantity = -1;
+    cart[cart_size - 1].price = -1;
+    cart[cart_size - 1].is_ala_cart = false;
+    cart[cart_size - 1].sets_drinks_id = -1;
+    cart[cart_size - 1].sets_snacks_id = -1;
 
-	cart_size--;
+    cart_size--;
 
 
 	return true;

@@ -33,7 +33,7 @@ void register_membership() {
 
 	while (!isalpha(has_membership) || (isalpha(has_membership) && (tolower(has_membership) != 'y' && tolower(has_membership) != 'n') ) ) {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		cout << "\nInvalid name! Try again.\n";
+		cout << "\nInvalid input! Try again.\n";
 		cout << "Do you have a membership? (Y for yes, N for no) : ";
 		cin >> has_membership;
 	}
