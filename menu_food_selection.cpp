@@ -47,17 +47,17 @@ void menu_food_selection(int option_num) {
 	// If food is main food
 	if (option_num >= 1 && option_num <= 9) {
 		// select Ala cart or set meal
-		cout << "\nDo you want a set meal or ala cart (Y\\n): ";
+		cout << "\nDo you want a set meal or ala cart (S\\a): ";
 		cin >> meal_option;
 
 		// Invalid input if meal_option is not alphabet or meal_option is not equal to y or n
-		while(!isalpha(meal_option) || isalpha(meal_option) && (tolower(meal_option) != 'y' && tolower(meal_option) != 'n')) {
+		while(!isalpha(meal_option) || isalpha(meal_option) && (tolower(meal_option) != 's' && tolower(meal_option) != 'a')) {
 			cout << "Invalid input, Please try again.";
-			cout << "\nDo you want a set meal or ala cart (Y\\n): ";
+			cout << "\nDo you want a set meal or ala cart (S\\a): ";
 			cin >> meal_option;
 		}
 
-		if (tolower(meal_option) == 'y') {
+		if (tolower(meal_option) == 's') {
 			cout << "\n";
 			for (size_t i = 1; i < 4; i++) {
 				cout << i << ". " << menu_list_item[i+9][0] << "\n";
@@ -92,8 +92,8 @@ void menu_food_selection(int option_num) {
 
 	// Option selections
 	if (option_num >= 1 && option_num <= 9) {
-		cout << "You have selected " << (tolower(meal_option) == 'y' ? "set meal" : "ala cart") << "\n";
-		if (tolower(meal_option) == 'y') {
+		cout << "You have selected " << (tolower(meal_option) == 's' ? "set meal" : "ala cart") << "\n";
+		if (tolower(meal_option) == 's') {
 			cout << menu_list_item[menu_id][0] << " with ";
 			cout << menu_list_item[drinks_selection + 9][0] << " & ";
 			cout << menu_list_item[snacks_selection + 13][0] << "\n";
@@ -101,7 +101,7 @@ void menu_food_selection(int option_num) {
 	}
 	cout << "Quantity : " << order_quantity << " item\n";
 	if (option_num >= 1 && option_num <= 9) {
-		if (tolower(meal_option) == 'y')
+		if (tolower(meal_option) == 's')
 			cout << "Price: RM " << (order_quantity * (stol(menu_list_item[menu_id][2]) + 6));
 		else
 			cout << "Price: RM " << order_quantity* stol(menu_list_item[menu_id][2]);
@@ -121,7 +121,7 @@ void menu_food_selection(int option_num) {
 	// if user wants to add current meal to cart
 	if (user_options == 1) {
 		// if current meal is set meal
-		if (tolower(meal_option) == 'y') {
+		if (tolower(meal_option) == 's') {
 			Cart_Response res = cart_add(
 				option_num - 1, 
 				order_quantity, 

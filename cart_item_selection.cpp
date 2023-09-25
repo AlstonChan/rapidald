@@ -27,7 +27,7 @@ void cart_item_selection(int cart_num) {
 		cout << menu_list_item[cart[cart_id].food_id][0] << " with ";
 		cout << menu_list_item[cart[cart_id].sets_drinks_id][0] << " & ";
 		cout << menu_list_item[cart[cart_id].sets_snacks_id][0] << " (Set meal)\n";
-		cout << "RM " << cart[cart_id].quantity * cart[cart_id].price;
+		cout << "RM " << cart[cart_id].price;
 	}
 	else {
 		cout << menu_list_item[cart[cart_id].food_id][0] << "\n";
