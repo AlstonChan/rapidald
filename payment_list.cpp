@@ -112,7 +112,8 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 
 		cout << "\n\n----------Options----------" << "\n";
 		cout << "Enter F to pay" << "\n";
-		cout << "Enter K to apply membership points" << "\n";
+		if (!points_applied)
+			cout << "Enter K to apply membership points" << "\n";
 		cout << "Enter P to previous page" << "\n\n";
 
 		if (points_applied) {
@@ -132,7 +133,7 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 			cin >> option;
 		}
 
-		if (tolower(option) == 'k') {
+		if (tolower(option) == 'k' && !points_applied) {
 			if (member_points >= 50) {
 				cout << "\n**Membership points is not refundable once used**" << endl;
 				cout << "\n**RM 1 spent = 1 Membership points**" << endl;
@@ -141,7 +142,7 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 				cout << "How much point do you want to spend (50, 60, 70, value multiple of 10) : ";
 				cin >> points_to_spend;
 
-				while (cin.fail() || points_to_spend < 50 || points_to_spend > member_points) {
+				while (cin.fail() || points_to_spend < 50 || points_to_spend > member_points || points_to_spend % 10 != 0) {
 					if (cin.fail())
 						handle_invalid("How much point do you want to spend : ", points_to_spend);
 					else {
@@ -154,6 +155,12 @@ void payment_list(int& option_pay, double total_price, int sub_total) {
 						else if (points_to_spend > member_points) {
 							cin.ignore(numeric_limits<streamsize>::max(), '\n');
 							cout << "You have insufficient points to redeem.\n" << endl;
+							cout << "How much point do you want to spend : ";
+							cin >> points_to_spend;
+						}
+						else if (points_to_spend%10 != 0) {
+							cin.ignore(numeric_limits<streamsize>::max(), '\n');
+							cout << "You can only spent points with a multiple of 10\n" << endl;
 							cout << "How much point do you want to spend : ";
 							cin >> points_to_spend;
 						}
