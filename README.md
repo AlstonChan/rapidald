@@ -1,5 +1,7 @@
 # rapidald console application
 
+This is a food ordering system for restaurant that is build in C++ as a console application.
+
 ## Getting Started
 
 1. To get all the requried file for local development, ensure that [Git](https://git-scm.com) is installed on your system. To check if git is installed on your sytem, click start, search for powershell and open it. Then, enter the following command:
@@ -25,6 +27,15 @@
     ```
 
 4. Open your **Visual Studio Code** and select the folder you have just cloned, you have successfully cloned the repository.
+
+## Build
+
+To build this project, you would need to use Visual Studio to build it.
+
+1. Select `Release` in the menu -> build -> Configuration Manager.
+2. Ensure that `Release` is selected instead of `Debug`.
+3. Select `Build` in the menu, then click `Build Solution`.
+4. The executable file will be build and available in the `x64/Release` folder.
 
 ## Contributor
 

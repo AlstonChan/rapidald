@@ -10,7 +10,7 @@ using namespace std;
 
 void points(int points_to_spend, double& total_price)
 {
-	int membership_point_added;
+	int membership_point_added = 0;
 
 	double discount;
 
